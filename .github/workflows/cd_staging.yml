@@ -20,4 +20,6 @@ jobs:
           username: ubuntu
           key: "${{ secrets.SSH_PRIVATE_KEY }}"
           port: 22
-          script: ./cicd-deployment/deploy.sh
+          script: |
+            chmod +x ./cicd-deployment/deploy.sh
+            ./cicd-deployment/deploy.sh
