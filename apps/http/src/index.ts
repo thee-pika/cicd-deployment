@@ -10,6 +10,13 @@ app.get("/", (req, res) => {
   res.send("Hello, TypeScript with Express!");
 });
 
+app.get("/user", async (req, res) => {
+  const user = await prisma.user.findFirst();
+  console.log("user ", user);
+
+  res.json({ user });
+});
+
 app.post("/login", async (req, res) => {
   const data = req.body;
   console.log("data from backend", data);
